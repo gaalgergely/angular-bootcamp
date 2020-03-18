@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+
+        <li 
+          class="page-item" 
+          [appClass]="{disabled: currentPage===0}"
+        >
+          <a 
+          (click)="currentPage=currentPage-1" 
+            class="page-link" 
+            href="#"
+          >Previous</a>
+        </li>
+        
+        <ng-container *appTimes="images.length; let i = index">
+          <li 
+            class="page-item" 
+            [appClass]="{active: i===currentPage}"
+            *ngIf="checkWindowIndex(i)"
+          >
+            <a 
+              (click)="currentPage = i" 
+              class="page-link" 
+              href="#"
+            >{{ i+1 }}</a>
+          </li>
+        </ng-container>
+        
+        <li 
+          class="page-item" 
+          [appClass]="{disabled: currentPage===images.length-1}"
+        >
+          <a 
+          (click)="currentPage=currentPage+1" 
+            class="page-link" 
+            href="#"
+          >Next</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </div>
+  <div>
+    <h4>{{ images[currentPage].title }}</h4>
+    <img [src]="images[currentPage].url" />
+  </div>
+</div>
