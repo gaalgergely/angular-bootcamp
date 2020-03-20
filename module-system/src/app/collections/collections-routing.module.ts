@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CollectionsHomeComponent } from './collections-home/collections-home.component';
 
 const routes: Routes = [
-  { path: 'collections', component: CollectionsHomeComponent }
+  { path: '', component: CollectionsHomeComponent }
 ];
 
 @NgModule({
